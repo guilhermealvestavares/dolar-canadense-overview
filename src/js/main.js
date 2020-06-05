@@ -1,54 +1,41 @@
 let $ = document.querySelector.bind(document);
 const priceNow = $('.content-infos__price');
-const pricesAfter = document.querySelectorAll('.content-after-days__prices');
 
-const createFieldForAfterDay = () => {
+const createFieldForAfterDay = (date,price) => {
   const containerField = document.createElement('div');
   containerField.classList.add('content-after-days__data');
   containerField.innerHTML = `
-  <p class="content-after-days__date">aaa</p>
-  <p class="content-after-days__price">aaa</p>
-`;
-$('.content-after-days').appendChild(containerField);
+    <p class="content-after-days__date"> ${date}</p>
+    <p class="content-after-days__price">${price}</p>
+  `;
+  $('.content-after-days').appendChild(containerField);
 }
-
-/* const insertPriceInFields = (className, value) => {
-  document.querySelectorAll(className)[index - 1].innerHTML = value;
-}
-
-const insertDateInFields = () => {
-  document.querySelectorAll('.content-after-days__date')[index - 1].innerHTML = element.timestamp;
-} */
 
 const timeStampForPatternBr = (timeStamp) => {
-  //const date = new Date(timeStamp * 1000); 
-  //date.toISOString();
-  //console.log(date);
-  let date = moment.tz(timeStamp * 1000, "America/Sao_Paulo").calendar();
+  let date = new Date(timeStamp * 1000).toLocaleString('pt-BR', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  console.log(date);
   return date;
-
 }
 
-const reqAPI = () => {
+const reqApi = () => {
     fetch("https://economia.awesomeapi.com.br/json/daily/CAD-BRL/8")
         .then((response) => {
         response.json()
 
         .then((data) => {
-        data.forEach((element, index) => {
+        data.forEach(({bid,timestamp}, index) => {
             if(index == 0) {
-                priceNow.innerHTML += element.bid;
+                priceNow.innerHTML += bid;
             } else {
-              createFieldForAfterDay();
-              document.querySelectorAll('.content-after-days__price')[index - 1].innerHTML = element.bid;
-              document.querySelectorAll('.content-after-days__date')[index - 1].innerHTML = timeStampForPatternBr(element.timestamp);
+              createFieldForAfterDay(timeStampForPatternBr(timestamp), bid);
+    
             }
         });
     })
   })
-.catch((err) => { 
-  console.error('Failed retrieving information', err);
-});
+  .catch((err) => { 
+    console.error('Failed retrieving information', err);
+  });
 }
 
-reqAPI();
+reqApi();

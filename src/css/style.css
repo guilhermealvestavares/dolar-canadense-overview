@@ -92,7 +92,7 @@ body {
 
 .content-after-days__data {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
     width:130px;
