@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #ff3f34!important;
+}
+
+.hero {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 960px) {
+    .hero {
+        height: 80vh!important;
+    }
+}
+
+
+.header-info {
+    padding: 24px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    text-transform: uppercase;
+    background-color: #ffffff;   
+    height: 10vh;
+}
+
+.header-info__image {
+    width: 50px;
+    margin-left: 12px;
+}
+
+.header-info__title {
+    font-size: 28px;
+    margin: 0;
+}
+
+.content-infos { 
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media (min-width: 960px) {
+    .content-infos {
+        text-align: left;
+    }
+}
+
+.content-infos__now {
+    width: 100%;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.content-infos__label {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.content-infos__price {
+    font-weight: bold;
+    font-size: 56px;
+}
+
+.content-after-days {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (min-width: 960px) {
+    .content-after-days {
+        width: 100%;
+    }
+}
+
+.content-after-days__data {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width:130px;
+    border: 1px solid hsla(240,8%,57%,.2);
+    box-shadow: 0 10px 25px 0 hsla(240,8%,57%,.25);
+    background-color: #f8f8f8;
+    color: #000000;
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+
+@media (max-width: 960px) {
+    .content-after-days__data {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 959px) {
+    .content-after-days {
+        flex-direction: column;
+    }
+}
+
