@@ -10,21 +10,32 @@
 </head>
 <body>
     <header class="header-info">
-        <h1 class="header-info__title">Dólar canadense</h1>
+        <p class="header-info__title">Dólar canadense</p>
         <img class="header-info__image" src="./src/images/flagCanada.svg"/>
     </header>
     <div class="hero">
         <div class="container"> 
+            <h1 class="content-infos__label">Preço do dólar canadense hoje</h1>
             <div class="content-infos">
                 <div class="content-infos__now">
-                    <span class="content-infos__label">Preço hoje</span>
                     <p class="content-infos__price"></p>
                 </div>
             </div>
+            <h2 class="content-infos__sublabel">Preço do dólar canadense nos últimos 7 dias</h2>
             <div class="content-after-days">      
             </div>
         </div>
     </div>
-<script src="./src/js/main.js"></script>
+    <div class="container">
+        <h2 class="content-infos__sublabel">Variação do preço do dólar canadense nos últimos 90 dias</h2>
+        <div class="chart-canvas">
+            <canvas id="chart-price" class="chat-price"></canvas>
+        </div>
+    </div>
+
+    <footer><p>Dados retirados de: https://docs.awesomeapi.com.br/api-de-moedas</p></footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="./src/js/main.js"></script>
 </body>
 </html>
