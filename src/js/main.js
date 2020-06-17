@@ -1,5 +1,6 @@
 let $ = document.querySelector.bind(document);
 const priceNow = $('.content-infos__price');
+const IOF_RATE = 1.10;
 
 const createFieldForAfterDay = (date,price) => {
   const containerField = document.createElement('div');
@@ -21,6 +22,25 @@ const insertDataInChart = (bid,timestamp) => {
   chartPrice.config.data.datasets[0].data.unshift(bid);
 }
 
+const changeTypeChart = () => {
+  const radioChart = document.querySelectorAll('.radio-change-chart');
+  radioChart.forEach((element, index) => {
+    element.addEventListener('click', () => {
+      if(element.checked) {
+        if(index == 0) {
+          console.log("gráfico de linha");
+          chartPrice.type = "line";
+          console.log(chartPrice.type);
+        } else if(index == 1) {
+          console.log("gráfico de barras");
+          chartPrice.type = "bar";
+          console.log(chartPrice.bar);
+        }
+      }
+    })
+  })
+}
+
 const reqApi = () => {
     fetch("https://economia.awesomeapi.com.br/json/daily/CAD-BRL/90")
         .then((response) => {
@@ -31,9 +51,8 @@ const reqApi = () => {
             if(index == 0) {
                 priceNow.innerHTML += bid;
             } else if(index <= 8) {
-              createFieldForAfterDay(timeStampForPatternBr(timestamp), bid);
+              createFieldForAfterDay(timeStampForPatternBr(timestamp), bid );
             } else {
-
             }
         });
     })
@@ -80,4 +99,5 @@ const chartPrice = new Chart(ctx, {
   }
 });
 
+changeTypeChart();
 

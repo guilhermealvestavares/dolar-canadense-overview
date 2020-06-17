@@ -7,7 +7,7 @@
 
 
 body {
-    background-color: #ff3f34!important;
+    background-color: #DA2A1C!important;
 }
 
 .hero {
@@ -89,6 +89,8 @@ body {
 .content-infos__price {
     font-weight: bold;
     font-size: 56px;
+    margin: 0;
+    padding: 0;
 }
 
 .content-after-days {
@@ -150,6 +152,9 @@ body {
     }
 }
 
+.radio-label {
+    color: #ffffff;
+}
 
 .chart-canvas {
     margin: 0 0 48px 0;
