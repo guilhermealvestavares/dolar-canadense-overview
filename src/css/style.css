@@ -140,13 +140,13 @@ body {
     margin: 0 auto;
 }
 
-.chat-price {
+.chart-price {
     width: 100%;
     height:500px;
 }
 
 @media (max-width: 960px) {
-    .chat-price {
+    .chart-price {
         width: 300px;
         height: 300px;
     }
